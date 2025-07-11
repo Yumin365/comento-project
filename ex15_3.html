@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h3>New add here</h3>
+    <script>
+        function addP() {
+            //@@@@새로운 글자 노드 추가@@@@@@@@@//
+            let newP = document.createElement("p");  //새 p태그를 만든다.
+            let p_text = document.createTextNode("HTML"); //텍스트 노드에 새 내용을 넣는다.
+            //순서는 아래부터 위로!
+            newP.appendChild(p_text);  //newP에 자식으로 p_text를 붙여라.
+            document.getElementById("info").appendChild(newP);   //div태그에 newP를 자식으로 붙여라.
+        
+
+            //@@@@새로운 이미지 노드 추가@@@@@@@//
+            let newImg = document.createElement("img");
+            let srcNode = document.createAttribute("src");
+            srcNode.value = "../images/watch.jpg";   //src 속성은 무조건 value! 로
+
+            newImg.setAttributeNode(srcNode); // newImg에 src노드를 자식으로 붙여라.
+            document.getElementById("info").appendChild(newImg); //div태그에 newImg를 자식으로 붙여라.
+        }
+
+        function h1Remove() {
+            document.getElementById("container").removeChild(h1); //id가 h1인 것! 찾아서 삭제해라.
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <h1 id="h1">JavaSCript</h1>
+        <a href="#" onclick="addP()">클릭</a>  <!--클릭하면 href무시하고 onclic실행함!-->
+        <div id="info"></div>
+        <button onclick="h1Remove()">노드 삭제</button>
+    </div>
+</body>
+</html>

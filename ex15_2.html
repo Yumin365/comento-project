@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+        }
+        #big {width: 330px; height: 300px;}
+        .small {
+            border: 1px solid red;
+            width: 100px; height: 100px;
+        }
+    </style>
+    <script>
+        function changeImg(obj) {
+            //let img_path = obj.src; //클릭한 이미지의 src속성을 얻어와라
+            let img_path = obj.getAttribute("src");  //클릭한 이미지의 src가져와
+            ///document.getElementById("big").src = img_path; 지금까지 한 방법. (JS방법)
+            let big_img = document.getElementById("big"); //들어갈 큰 이미지 찾기
+            //alert(big_img.getAttribute("src"));  //alert(big_img.src); 도 가능
+            
+            big_img.setAttribute("src", img_path); //src속성을 img_path로 설정하라! (다른 언어 방법)
+            //큰 이미지를 선택된 이미지로 바꾸기
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <div>
+            <img src="../LAB11_1/s_smile1.jpg" id="big">
+        </div>
+        <div id="small-pic">
+            <img src="../LAB11_1/s_smile1.jpg" class="small" onclick="changeImg(this)" title="웃는 이미지">
+            <img src="../images/watch.jpg" class="small" onclick="changeImg(this)" title="시계 이미지">
+            <img src="../LAB11_1/s_sad.jpg" class="small" onclick="changeImg(this)" title="우는 이미지">
+        </div>
+    </div>
+    
+</body>
+    
+</html>
