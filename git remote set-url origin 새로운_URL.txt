@@ -1,2 +1,0 @@
-새로운 레포지토리 연결
-git remote set-url origin <새로운_URL>
