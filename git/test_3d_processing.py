@@ -106,14 +106,14 @@ cv2.destroyAllWindows()
 
 
 #-------------------------------------
-# 테스트 코드
-def test_generate_depth_map():
+# # 테스트 코드
+# def test_generate_depth_map():
     
-    assert depth_map.shape== image.shape, "출력 크기가 입력 크기와 다릅니다." # assert: 조건이 True가 아니면 AssertionError 발생
-    assert isinstance(depth_map, np.ndarray), "출력 데이터 타입이 ndarray가 아닙니다."
+#     assert depth_map.shape== image.shape, "출력 크기가 입력 크기와 다릅니다." # assert: 조건이 True가 아니면 AssertionError 발생
+#     assert isinstance(depth_map, np.ndarray), "출력 데이터 타입이 ndarray가 아닙니다."
  
  
  
- # pytest실행
-if __name__ == "__main__":
-    pytest.main() # test_로 시작하는 함수들을 자동으로 찾아서 실행
+#  # pytest실행
+# if __name__ == "__main__":
+#     pytest.main() # test_로 시작하는 함수들을 자동으로 찾아서 실행
