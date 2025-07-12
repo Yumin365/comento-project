@@ -37,7 +37,7 @@ from mpl_toolkits.mplot3d import Axes3D # 3D 플롯을 위해 필요
 
 
 # 이미지 로드
-image= cv2.imread('sample2.jpg')
+image= cv2.imread('./week2/sample2.jpg')
 
 # 그레이스케일 변환
 gray= cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -59,61 +59,61 @@ points_3d = np.dstack((X, Y, Z))
 # 배열을 Z축으로 쌓아 3D 좌표 생성
 
 
-# # 결과출력
-# cv2.imshow('DepthMap', depth_map)
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
+# 결과출력
+cv2.imshow('DepthMap', depth_map)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
 
 
 
 # ----------------- 3D 포인트 클라우드 시각화 (Matplotlib) -----------------
 
-# 3D 좌표생성
-# X, Y, Z 배열을 (픽셀 수, 1) 형태로 평탄화한 후, 다시 (픽셀 수, 3)으로 합칩니다.
-# Matplotlib의 scatter는 1D 배열을 입력으로 받기 때문에 reshape(-1)을 사용합니다.
-points_3d_flattened = np.dstack((X, Y, Z)).reshape(-1, 3) # 모든 점을 하나의 리스트로 만듭니다.
+# # 3D 좌표생성
+# # X, Y, Z 배열을 (픽셀 수, 1) 형태로 평탄화한 후, 다시 (픽셀 수, 3)으로 합칩니다.
+# # Matplotlib의 scatter는 1D 배열을 입력으로 받기 때문에 reshape(-1)을 사용합니다.
+# points_3d_flattened = np.dstack((X, Y, Z)).reshape(-1, 3) # 모든 점을 하나의 리스트로 만듭니다.
 
-fig = plt.figure(figsize=(10, 8)) # 새 그림(figure) 객체 생성
-ax = fig.add_subplot(111, projection='3d') # 3D 서브플롯 추가
+# fig = plt.figure(figsize=(10, 8)) # 새 그림(figure) 객체 생성
+# ax = fig.add_subplot(111, projection='3d') # 3D 서브플롯 추가
 
-# 산점도(scatter plot) 그리기
-# X, Y, Z 좌표를 각각 첫 번째, 두 번째, 세 번째 열에서 가져옵니다.
-# s=1은 점의 크기, alpha=0.5는 투명도를 나타냅니다.
-# c는 점의 색상인데, 여기서는 Z값을 색상으로 사용하여 깊이에 따라 색이 변하도록 합니다.
-# cmap은 컬러맵을 지정합니다.
-sc = ax.scatter(points_3d_flattened[:, 0], -points_3d_flattened[:, 1], points_3d_flattened[:, 2],
-                c=points_3d_flattened[:, 2], cmap='jet', s=1, alpha=0.8)
+# # 산점도(scatter plot) 그리기
+# # X, Y, Z 좌표를 각각 첫 번째, 두 번째, 세 번째 열에서 가져옵니다.
+# # s=1은 점의 크기, alpha=0.5는 투명도를 나타냅니다.
+# # c는 점의 색상인데, 여기서는 Z값을 색상으로 사용하여 깊이에 따라 색이 변하도록 합니다.
+# # cmap은 컬러맵을 지정합니다.
+# sc = ax.scatter(points_3d_flattened[:, 0], -points_3d_flattened[:, 1], points_3d_flattened[:, 2],
+#                 c=points_3d_flattened[:, 2], cmap='jet', s=1, alpha=0.8)
 
-ax.set_xlabel('X-axis (Width)')
-ax.set_ylabel('Y-axis (Height)')
-ax.set_zlabel('Z-axis (Depth/Brightness)')
-ax.set_title('3D Point Cloud from Image Brightness')
-fig.colorbar(sc, shrink=0.5, aspect=5, label='Depth Value (Brightness)') # 컬러바 추가
+# ax.set_xlabel('X-axis (Width)')
+# ax.set_ylabel('Y-axis (Height)')
+# ax.set_zlabel('Z-axis (Depth/Brightness)')
+# ax.set_title('3D Point Cloud from Image Brightness')
+# fig.colorbar(sc, shrink=0.5, aspect=5, label='Depth Value (Brightness)') # 컬러바 추가
 
-plt.savefig('output_3d_plot') # 3D 플롯을 파일로 저장
+# plt.savefig('output_3d_plot') # 3D 플롯을 파일로 저장
 
-plt.show() # 3D 플롯 보여주기
+# plt.show() # 3D 플롯 보여주기
 
-# -------------------------------------------------------------------------
+# # -------------------------------------------------------------------------
 
-# 결과출력 (기존 DepthMap 시각화)
-cv2.imshow('Original Image', image) # 원본 이미지 추가
-cv2.imshow('DepthMap', depth_map)
-cv2.imwrite('output_depth_map.jpg', depth_map)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+# # 결과출력 (기존 DepthMap 시각화)
+# cv2.imshow('Original Image', image) # 원본 이미지 추가
+# cv2.imshow('DepthMap', depth_map)
+# cv2.imwrite('output_depth_map.jpg', depth_map)
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
 
 
-#-------------------------------------
-# # 테스트 코드
-# def test_generate_depth_map():
+# #-------------------------------------
+# # # 테스트 코드
+# # def test_generate_depth_map():
     
-#     assert depth_map.shape== image.shape, "출력 크기가 입력 크기와 다릅니다." # assert: 조건이 True가 아니면 AssertionError 발생
-#     assert isinstance(depth_map, np.ndarray), "출력 데이터 타입이 ndarray가 아닙니다."
+# #     assert depth_map.shape== image.shape, "출력 크기가 입력 크기와 다릅니다." # assert: 조건이 True가 아니면 AssertionError 발생
+# #     assert isinstance(depth_map, np.ndarray), "출력 데이터 타입이 ndarray가 아닙니다."
  
  
  
-#  # pytest실행
-# if __name__ == "__main__":
-#     pytest.main() # test_로 시작하는 함수들을 자동으로 찾아서 실행
+# #  # pytest실행
+# # if __name__ == "__main__":
+# #     pytest.main() # test_로 시작하는 함수들을 자동으로 찾아서 실행
