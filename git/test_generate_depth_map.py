@@ -1,4 +1,4 @@
- #pytest를활용한기본UnitTest
+ #pytest를 활용한 기본 UnitTest
 import numpy as np
 import pytest
 import cv2
