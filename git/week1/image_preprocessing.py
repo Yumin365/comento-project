@@ -54,7 +54,7 @@ def preprocess_image(image_path):
         return None
 
     # 2. 객체 크기가 너무 작은 이미지 제거
-    # 간단한 방법으로, 이미지에서 가장 큰 contour(윤곽선)의 면적을 객체 크기로 간주
+    # 이미지에서 가장 큰 contour(윤곽선)의 면적을 객체 크기로 간주
     blurred = cv2.GaussianBlur(gray_for_check, (5, 5), 0)
     _, thresh = cv2.threshold(blurred, 127, 255, cv2.THRESH_BINARY)
     contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -84,8 +84,6 @@ def preprocess_image(image_path):
     blurred_img = cv2.GaussianBlur(gray_img, (5, 5), 0)
 
     # 4. 정규화 (Normalize) - 픽셀 값을 0~1 사이로
-    # AI 모델은 보통 0~1 사이의 float 값을 입력으로 받음
-    # 저장을 위해 다시 0~255 범위의 정수형으로 변환하므로, 여기서는 개념만 이해
     normalized_img = blurred_img / 255.0
 
     # --- [기본 문제] 데이터 증강 (Data Augmentation) ---
