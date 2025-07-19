@@ -126,7 +126,7 @@ import numpy as np
 import open3d as o3d # Open3D 임포트
 
 # 이미지 로드
-image = cv2.imread('.\week2\sample4.jpg')
+image = cv2.imread('.\week2\sample2.jpg')
 
 # 이미지가 제대로 로드되었는지 확인
 if image is None:

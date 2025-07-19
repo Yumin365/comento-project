@@ -130,7 +130,7 @@ def mouse_callback(event, x, y, flags, param):
         print(f"클릭한 픽셀의 HSV 값: {selected_hsv}")
 
 # 이미지 로드
-image = cv2.imread('sample.jpg')
+image = cv2.imread('.\week1\sample.jpg')
 
 # 이미지가 제대로 로드되었는지 확인
 if image is None:
