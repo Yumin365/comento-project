@@ -1,4 +1,4 @@
-'''
+
 git/
 ├── .pytest_cache/
 ├── __pycache__/
@@ -26,4 +26,3 @@ git/
 ├── week4/
 │   └── video_detection.py
 └── yolov5s.pt
-'''
