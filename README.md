@@ -1,6 +1,6 @@
 git/
 ├── .pytest_cache/
-├── __pycache__/
+├── pycache/
 ├── preprocessed_samples/
 ├── week1/
 │   ├── image_preprocessing.py
@@ -25,6 +25,3 @@ git/
 ├── week4/
 │   └── video_detection.py
 └── yolov5s.pt
-
-
-
